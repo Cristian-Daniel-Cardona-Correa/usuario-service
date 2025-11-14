@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(CredencialesInvalidasException.class)
     public ResponseEntity<Map<String, Object>> handleCredenciales(CredencialesInvalidasException ex) {
         Map<String, Object> response = new HashMap<>();
-        response.put(ERROR, "Credenciales inválidas");
+        response.put(ERROR, ex.getMessage());
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
     }
 
